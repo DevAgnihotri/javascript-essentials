@@ -1,6 +1,7 @@
 const breakfastMenu = ['Pancakes', 'Eggs Benedict', 'Oatmeal', 'Frittata'];
 const mainCourseMenu = ['Steak', 'Pasta', 'Burger', 'Salmon'];
 const dessertMenu = ['Cake', 'Ice Cream', 'Pudding', 'Fruit Salad'];
+const sastaMenu = ['ilaichi', 'Chawal', 'Chana', 'Ubla Aloo'];
 
 const breakfastMenuItemsHTML = breakfastMenu.map((item, index) => `<p>Item ${index + 1}: ${item}</p>`).join('');
 document.getElementById('breakfastMenuItems').innerHTML = breakfastMenuItemsHTML;
@@ -14,3 +15,8 @@ let dessertItem = '';
 for (let i = 0; i < dessertMenu.length; i++) {
     dessertItem += `<p>Item ${i + 1}: ${dessertMenu[i]}</p>`;}
 document.getElementById('dessertMenuItems').innerHTML = dessertItem;
+
+let sastaItem = '';
+sastaMenu.forEach((item,index) => {
+    sastaItem += `<p>Item ${index + 1}: ${item}</p>`;});
+document.getElementById('sastaMenuItems').innerHTML = sastaItem;
