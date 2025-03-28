@@ -1,20 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ToDo List</title>
+    <title>ToDo List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #taskInput {
+            width: 300px;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+            width: 400px;
+        }
+
+        ul li {
+            background-color: #fff;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        ul li input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #taskList {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+    </style>
 </head>
 <body>
-<h1>ToDo List</h1>
-<input type="text" id="taskInput" placeholder="Add a new task">
-<button id="addTaskBtn">Add Task</button>
-
-<!-- <input type="text" id="searchInput" placeholder="Search..."> -->
-<ul id="taskList">
-    <!-- Tasks will be displayed here -->
-</ul>
-
-<button id="clearCompletedBtn">Clear Completed</button>
-<script src="./todo_list.js"></script>
-
+    <div>
+        <h1>ToDo List</h1>
+        <input type="text" id="taskInput" placeholder="Add a new task">
+        <button id="addTaskBtn">Add Task</button>
+        <ul id="taskList">
+            <!-- Tasks will be displayed here -->
+        </ul>
+        <button id="clearCompletedBtn">Clear Completed</button>
+        <button id="clearAllBtn">Clear ALL Tasks</button><br><br>
+        <button id="checkalltasksBtn">Check ALL Tasks</button>
+        <button id="uncheckalltasksBtn">Uncheck ALL Tasks</button>
+    </div>
+    <script src="./todo_list.js"></script>
 </body>
 </html>

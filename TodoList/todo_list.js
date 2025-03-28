@@ -3,6 +3,9 @@ const taskInput = document.getElementById("taskInput");
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskList = document.getElementById("taskList");
 const clearCompletedBtn = document.getElementById("clearCompletedBtn");
+const clearAllBtn = document.getElementById("clearAllBtn");
+const checkalltasksBtn = document.getElementById("checkalltasksBtn");
+const uncheckalltasksBtn = document.getElementById("uncheckalltasksBtn");
 
 let tasks = [];
 
@@ -32,9 +35,32 @@ function toggleTask(index) {
 }
 
 function clearCompletedTasks() {
-    tasks = tasks.filter(task => !task.completed);
+    if (tasks.length === 0) {
+        alert('No tasks to clear');
+    }
+    else {
+        tasks = tasks.filter(task => !task.completed);
+        displayTasks();
+    }
+}
+
+function clearAllTasks( ) {
+    tasks = [];
+    displayTasks();
+}
+
+function checkalltasks() {
+    tasks.forEach(task => task.completed = true);
+    displayTasks();
+}
+
+function uncheckedalltasks() {
+    tasks.forEach(task => task.completed = false);
     displayTasks();
 }
 
 addTaskBtn.addEventListener("click", addTask);
 clearCompletedBtn.addEventListener("click", clearCompletedTasks);
+clearAllBtn.addEventListener("click", clearAllTasks);
+checkalltasksBtn.addEventListener("click", checkalltasks);
+uncheckalltasksBtn.addEventListener("click", uncheckedalltasks);
