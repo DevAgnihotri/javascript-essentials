@@ -37,14 +37,13 @@ function toggleTask(index) {
 function clearCompletedTasks() {
     if (tasks.length === 0) {
         alert('No tasks to clear');
-    }
-    else {
+    } else {
         tasks = tasks.filter(task => !task.completed);
         displayTasks();
     }
 }
 
-function clearAllTasks( ) {
+function clearAllTasks() {
     tasks = [];
     displayTasks();
 }
@@ -58,6 +57,12 @@ function uncheckedalltasks() {
     tasks.forEach(task => task.completed = false);
     displayTasks();
 }
+
+taskInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        addTask();
+    }
+});
 
 addTaskBtn.addEventListener("click", addTask);
 clearCompletedBtn.addEventListener("click", clearCompletedTasks);
