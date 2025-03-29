@@ -1,3 +1,8 @@
+// generateCards(): Creates card elements with colors for the game.
+// shuffle(array): Randomizes the order of elements in an array.
+// handleCardClick(event): Manages card clicks and checks for matches.
+// startGame(): Resets the game, shuffles cards, and starts a timer.
+
 const colors = ['red', 'blue', 'green', 'purple', 'orange', 'pink', 'red', 'blue', 'green', 'purple', 'orange', 'pink'];
  
 let cards = shuffle(colors.concat(colors)); // Concatenate the array with itself to create pairs
@@ -117,7 +122,7 @@ function startGameTimer(timeLeft) {
             alert('Game Over!');
             startbtn.disabled = false;
         }
-    }, 1000);
+    }, 1500);
 }
 
 startbtn.addEventListener('click', startGame);
