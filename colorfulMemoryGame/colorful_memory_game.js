@@ -49,7 +49,9 @@ function shuffle(array) {
 }
 
 function handleCardClick(event) {
+    if (gameover) return; // Prevent clicks if the game is over
      const card = event.target;
+     console.log(card); // Debugging line to check the clicked card
 /*
 The code ensures that the function only processes valid cards:
  - If the element is not a card (!card.classList.contains('card')), it exits. OR
@@ -109,7 +111,6 @@ function startGameTimer(timeLeft) {
 
         if (timeLeft === 0) {
             clearInterval(gameInterval);
-            let timeLeft = 30;
             alert('Game Over!');
             startbtn.disabled = false;
         }
@@ -124,7 +125,7 @@ function startGameTimer(timeLeft) {
 
         if (timeLeft === 0) {
             clearInterval(gameInterval);
-            let timeLeft = 30;
+            gameover = true; // Set gameover to true
             alert('Game Over!');
             startbtn.disabled = false;
         }
