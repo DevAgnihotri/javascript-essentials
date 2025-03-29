@@ -58,6 +58,12 @@ The code ensures that the function only processes valid cards:
     if (!card.classList.contains('card') || card.classList.contains('matched')) {
         return;
     }
+
+    // Prevent selecting the same card twice
+    if (selectedCards.includes(card)) {
+        return;
+    }
+
     card.textContent = card.dataset.color;
     card.style.backgroundColor = card.dataset.color;
     selectedCards.push(card);
@@ -126,3 +132,40 @@ function startGameTimer(timeLeft) {
 }
 
 startbtn.addEventListener('click', startGame);
+
+
+/*  
+
+### Understanding the Code Execution:
+for the code snippet: 
+if (selectedCards.includes(card)) {
+        return;
+    }
+
+1. **First Click on a Card:**  
+   - `selectedCards` is empty initially.
+   - The clicked card is not in `selectedCards`, so the condition `if (selectedCards.includes(card)) { return; }` **does not trigger**.
+   - The card is pushed into `selectedCards`.
+
+2. **Second Click on a Different Card:**  
+   - The second card is not in `selectedCards`, so it passes the `if (selectedCards.includes(card))` check.
+   - The second card is pushed into `selectedCards`.
+   - Since `selectedCards.length === 2`, `setTimeout(checkMatch, 500);` is called.
+
+3. **Why It Doesn't Get Stuck:**  
+   - The key is that **the check happens before pushing the card**.
+   - A card is added to `selectedCards` **only if it is not already there**.
+   - This ensures that duplicate selections are prevented while allowing two distinct cards to be added.
+
+### What Happens if You Click the Same Card Again?
+- Suppose you click the same card twice:
+  ```js
+  if (selectedCards.includes(card)) { return; }
+  ```
+  - This condition becomes **true**, so the function **exits early**.
+  - The card is **not** pushed into `selectedCards` again.
+  - The code continues running normally.
+
+### Summary:
+Your concern is that `selectedCards.push(card);` 
+might make the check always return `true`, leading to a stuck state. However, the check happens **before pushing**, ensuring that only unique selections proceed.*/
