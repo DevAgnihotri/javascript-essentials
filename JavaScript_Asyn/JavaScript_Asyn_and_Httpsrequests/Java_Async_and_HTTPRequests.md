@@ -107,26 +107,102 @@ AJAX (Asynchronous JavaScript and XML) allows web pages to communicate with a se
 
 XMLHttpRequest (XHR) is an API to transfer data between a web browser and a server.
 
-### Example of Using XMLHttpRequest
+### How to Work with XMLHttpRequest (Step-by-Step Guide)
+
+#### 1. Create an XMLHttpRequest Object
 
 ```javascript
-const xhr = new XMLHttpRequest(); // Create a new XHR object
+var xhr = new XMLHttpRequest(); // Step 1: Create a new XMLHttpRequest object
+```
 
-xhr.open("GET", "https://api.example.com/data", true); // Open a GET request to the API
+- This object allows us to interact with servers and send HTTP requests.
+- It is used to fetch resources from a URL asynchronously.
 
-xhr.onreadystatechange = function () {
-  // Check if request is completed and response is ready
-  if (xhr.readyState === 4 && xhr.status === 200) {
-    console.log(JSON.parse(xhr.responseText)); // Parse and log the JSON response
+#### 2. Define the URL to Fetch Data From
+
+```javascript
+var url = "./health_records.json"; // Step 2: Define the URL where data is located
+```
+
+- The variable `url` stores the path of the JSON file we want to retrieve.
+- This can be a local file or an API endpoint.
+
+#### 3. Open a Connection to the Server
+
+```javascript
+xhr.open("GET", url, true); // Step 3: Open a connection using the GET method
+```
+
+- `open(method, url, async)` initializes the request.
+- `GET` is the HTTP method used to request data.
+- `url` specifies the location of the resource.
+- `true` means the request is asynchronous (non-blocking).
+
+#### 4. Set the Response Type
+
+```javascript
+xhr.responseType = "json"; // Step 4: Tell the browser we expect JSON response
+```
+
+- `responseType` specifies the format of the response.
+- Setting it to `"json"` ensures the response is automatically parsed into a JavaScript object.
+
+#### 5. Handle the Response
+
+```javascript
+xhr.onload = function () {
+  if (xhr.status === 200) {
+    // Check if request was successful
+    console.log(xhr.response); // Log the response data
+  } else {
+    console.error("Error fetching data"); // Handle errors
+  }
+};
+```
+
+- `onload` triggers when the request is completed successfully.
+- `xhr.status` checks if the HTTP response status is `200` (OK).
+- `xhr.response` contains the parsed JSON data.
+
+#### 6. Handle Errors
+
+```javascript
+xhr.onerror = function () {
+  console.error("Request failed"); // Log an error message if the request fails
+};
+```
+
+- `onerror` triggers when there is a network issue or the request fails.
+
+#### 7. Send the Request
+
+```javascript
+xhr.send(); // Step 5: Send the request to the server
+```
+
+- This actually sends the HTTP request.
+- Since it's asynchronous, the browser continues executing the next lines of code without waiting for the response.
+
+### Full XMLHttpRequest Example
+
+```javascript
+var xhr = new XMLHttpRequest();
+var url = "./health_records.json";
+
+xhr.open("GET", url, true);
+xhr.responseType = "json";
+
+xhr.onload = function () {
+  if (xhr.status === 200) {
+    console.log(xhr.response);
+  } else {
+    console.error("Error fetching data");
   }
 };
 
-xhr.send(); // Send the request to the server
+xhr.onerror = function () {
+  console.error("Request failed");
+};
+
+xhr.send();
 ```
-
-### Key Methods of XMLHttpRequest
-
-- `open(method, url, async)`: Initializes the request.
-- `send()`: Sends the request.
-- `onreadystatechange`: Triggers when the state changes.
-- `readyState & status`: Help track the response status.
