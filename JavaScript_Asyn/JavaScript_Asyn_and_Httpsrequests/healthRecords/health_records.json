@@ -1,0 +1,25 @@
+{
+    "records": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "age": 30,
+            "condition": "Healthy",
+            "lastCheckup": "2023-10-01"
+        },
+        {
+            "id": 2,
+            "name": "Jane Smith",
+            "age": 25,
+            "condition": "Flu",
+            "lastCheckup": "2023-09-15"
+        },
+        {
+            "id": 3,
+            "name": "Alice Johnson",
+            "age": 40,
+            "condition": "Diabetes",
+            "lastCheckup": "2023-08-20"
+        }
+    ]
+}
