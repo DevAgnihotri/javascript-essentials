@@ -19,7 +19,7 @@ xhr.onload = function () {
         id.textContent = "Patient " + record.id;
 
         var name = document.createElement("p");
-        name.textContent = "Name: " + record.name;
+        name.innerHTML = "<b> Name: </b> " + record.name;
 
         var age = document.createElement("p");
         age.textContent = "Age: " + record.age;
