@@ -13,7 +13,8 @@ JSON (JavaScript Object Notation) is a lightweight data format that is easy to r
   "name": "John Doe",
   "age": 30,
   "city": "New York",
-  "job": "Developer"
+  "job": "Developer",
+  "salary": 25000
 }
 ```
 
