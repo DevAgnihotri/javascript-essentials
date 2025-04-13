@@ -216,7 +216,7 @@ do {
 **Syntax**:
 
 ```javascript
-array.forEach(function (currentValue, index, array) {
+array.forEach(function (currentValue: any, index: number, array: any[]) {
   // code to execute
 });
 ```
