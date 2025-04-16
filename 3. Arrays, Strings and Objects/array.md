@@ -217,8 +217,6 @@ let [first, second] = ["a", "b", "c"];
 </html>
 ```
 
----
-
 ### 🧾 Explanation Line-by-Line
 
 - `<button onclick="showFruits()">` – A button that runs the `showFruits()` function when clicked.
