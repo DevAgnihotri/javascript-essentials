@@ -1,17 +1,22 @@
+// Importing the React library to use React components and features.
 import React from 'react';
+
+// Importing ReactDOM to interact with the DOM and render React components.
 import ReactDOM from 'react-dom/client';
-import './index.css';
+
+// Importing the App component, which is the main component of the application.
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
+// Creating a root element to render the React application.
+// ReactDOM.createRoot initializes the React rendering process for the specified DOM element.
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Defining a function named 'ref' that renders the App component into the root element.
+// This function is called repeatedly to re-render the App component.
+function ref() {
+  root.render(<App/>); // Renders the App component inside the root DOM element.
+}
+
+// Using setInterval to call the 'ref' function every 1000 milliseconds (1 second).
+// This creates a loop that re-renders the App component every second.
+setInterval(ref, 1000);
