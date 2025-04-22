@@ -1,0 +1,3 @@
+[submodule "React/content_rating"]
+	path = React/content_rating
+	url = https://github.com/ibm-developer-skills-network/content_rating.git
