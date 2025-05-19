@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Cascading Style Sheets (CSS) is a styling language used to describe the presentation of a document written in HTML. CSS defines how HTML elements should be displayed on screen, on paper, or in other media. It controls layout, colors, fonts, and can adapt the presentation to different types of devices, such as large screens, small screens, or printers.
+Cascading Style Sheets (CSS) is a styling language used to describe the presentation of a document written in HTML. CSS defines how HTML elements should be displayed, It controls layout, colors, fonts, and can adapt the display to different types of devices, such as laptops(widescreen) Monitors (square screen) Mobile phones(portrait).
 
 This guide covers the following topics:
 
@@ -25,6 +25,8 @@ CSS solves a big problem: Before CSS, HTML elements had to contain style informa
 ### Basic CSS Syntax
 
 CSS consists of **selectors** and **declarations**:
+
+Declaration consist of Properties and there corresponding values.
 
 ```css
 selector {
