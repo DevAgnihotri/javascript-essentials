@@ -52,7 +52,14 @@ This is the standard structure of an HTML.
 
 ## HTML Tags
 
-### Structure of HTML Tag
+### What is an HTML Tag? How is it different from an HTML Element?
+
+- An **HTML tag** is a keyword surrounded by angle brackets, like `<p>`. Tags are used to mark the start or end of an element in an HTML document.
+- An **HTML element** includes the opening tag, the content inside, and the closing tag. For example, `<p>Hello</p>` is a complete HTML element.
+- In short, a tag is just the markup (like `<p>` or `</p>`), while an element is the whole structure (opening tag, content, and closing tag).
+- Some elements are self-closing and only use one tag, like `<br />`.
+
+### Structure of HTML element
 
 - Tags have three parts, the opening, closing and content
 - `<openingtag>Content</closingtag>`
@@ -129,6 +136,8 @@ Example:
 ```
 
 ## HTML Headings
+
+HTML headings are used to define the titles and subtitles on a webpage. They range from `<h1>` (the most important heading, usually the main title, biggest font-size) to `<h6>` (the least important, smallest font size). Headings help organize content, improve readability, and provide structure for both users and search engines. Using headings appropriately also enhances accessibility and SEO.
 
 - HTML includes 6 headings: `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>` and `<h6>`
 - Heading elements are used to write headings on a webpage, whereas p tag is only for plain text

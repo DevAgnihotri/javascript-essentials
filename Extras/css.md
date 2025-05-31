@@ -26,8 +26,6 @@ CSS solves a big problem: Before CSS, HTML elements had to contain style informa
 
 CSS consists of **selectors** and **declarations**:
 
-Declaration consist of Properties and there corresponding values.
-
 ```css
 selector {
   property: value;
@@ -122,6 +120,26 @@ When multiple CSS rules target the same element, they "cascade" into a new "virt
 For rules with equal specificity, the last one defined wins.
 
 ## CSS Selectors
+
+| Selector Type          | Syntax Example       | Description / Usage                                     |
+| ---------------------- | -------------------- | ------------------------------------------------------- |
+| **Element**            | `p {}`               | Selects all `<p>` elements                              |
+| **ID**                 | `#header {}`         | Selects element with `id="header"` (unique per page)    |
+| **Class**              | `.important {}`      | Selects all elements with `class="important"`           |
+| **Element + Class**    | `p.highlight {}`     | Selects `<p>` elements with `class="highlight"`         |
+| **Multiple Classes**   | `.center.large {}`   | Selects elements with both `center` and `large` classes |
+| **Universal**          | `* {}`               | Selects all elements                                    |
+| **Descendant**         | `div p {}`           | Selects `<p>` inside any `<div>`                        |
+| **Child**              | `div > p {}`         | Selects `<p>` directly inside `<div>`                   |
+| **Adjacent Sibling**   | `div + p {}`         | Selects `<p>` immediately after a `<div>`               |
+| **Attribute**          | `input[type="text"]` | Selects `<input>` with `type="text"`                    |
+| **Attribute (starts)** | `a[href^="https"]`   | Selects `<a>` with `href` starting with "https"         |
+| **Attribute (ends)**   | `img[alt$="icon"]`   | Selects `<img>` with `alt` ending with "icon"           |
+| **Grouping**           | `h1, h2, h3 {}`      | Selects all `<h1>`, `<h2>`, and `<h3>` elements         |
+| **Pseudo-class**       | `a:hover {}`         | Selects `<a>` elements when hovered                     |
+| **Pseudo-element**     | `p::first-letter {}` | Selects the first letter of each `<p>`                  |
+
+Use these selectors to target and style HTML elements efficiently.
 
 Selectors are patterns used to select and style HTML elements.
 
@@ -746,6 +764,28 @@ Bootstrap is a popular CSS framework for building responsive, mobile-first websi
 - Pre-styled components (buttons, forms, etc.)
 - Grid system for layout
 - Highly customizable
+
+### Advantages and Disadvantages of Bootstrap vs. Custom CSS
+
+#### Advantages of Bootstrap
+
+- **Rapid Development:** Pre-built components and utilities speed up the design process.
+- **Responsive Design:** Built-in grid system and classes make mobile-first layouts easy.
+- **Consistency:** Ensures a uniform look and feel across browsers and devices.
+- **Cross-browser Compatibility:** Handles many browser quirks out of the box.
+- **Community Support:** Extensive documentation and a large community for help and resources.
+- **Customizable:** Can be customized via Sass variables and custom builds.
+
+#### Disadvantages of Bootstrap
+
+- **Generic Look:** Sites can look similar if not customized, as many use default styles.
+- **File Size:** Including the full Bootstrap library can increase page load times.
+- **Learning Curve:** Requires learning Bootstrap’s class names and structure.
+- **Overhead:** May include features and styles you don’t need, leading to unused CSS.
+- **Less Flexibility:** Custom designs may require overriding Bootstrap styles, which can be cumbersome.
+
+**Summary:**  
+Bootstrap is ideal for quickly building responsive, consistent interfaces, especially for prototypes or when design consistency is a priority. For highly customized or lightweight sites, custom CSS may be preferable.
 
 ### Bootstrap Grid System
 
