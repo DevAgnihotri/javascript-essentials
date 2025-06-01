@@ -26,31 +26,67 @@ State is data that can change. When state changes, React updates what you see on
 
 ## Setting Up React (Boilerplate Code)
 
-### Creating a New React App
+### Creating a New React App with Vite
 
 ```bash
-# Create a new React app
-npx create-react-app my-app
+# Create a new React app with Vite
+npm create vite@latest my-app -- --template react
 
 # Go into the folder
 cd my-app
 
+# Install dependencies
+npm install
+
 # Start the development server
-npm start
+npm run dev
 ```
+
+### Why Vite Instead of Create React App?
+
+- **Faster Development**: Vite uses native ES modules for lightning-fast hot module replacement
+- **Quicker Builds**: Much faster build times compared to create-react-app
+- **Modern Tooling**: Uses modern build tools and supports latest JavaScript features
+- **Smaller Bundle Size**: More efficient bundling and tree-shaking
 
 ### Basic File Structure
 
 ```
 my-app/
   src/
-    App.js          // Main component
-    index.js        // Entry point
+    App.jsx         // Main component (note: .jsx extension)
+    main.jsx        // Entry point (equivalent to index.js)
     index.css       // Global styles
+    App.css         // Component-specific styles
   public/
     index.html      // HTML template
   package.json      // Project settings
+  vite.config.js    // Vite configuration
 ```
+
+### Development Commands
+
+```bash
+# Start development server (with hot reload)
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build locally
+npm run preview
+
+# Install additional packages (example)
+npm install package-name
+```
+
+### Key Differences from Create React App
+
+1. **File Extensions**: Use `.jsx` for React components (though `.js` also works)
+2. **Entry Point**: `main.jsx` instead of `index.js`
+3. **Faster Hot Reload**: Changes appear almost instantly
+4. **ES Modules**: Import files with explicit extensions for better performance
+5. **Build Command**: `npm run build` creates optimized production files in `dist/` folder
 
 ---
 
@@ -59,7 +95,7 @@ my-app/
 ### Basic Component Structure
 
 ```jsx
-// App.js
+// App.jsx
 function App() {
   return (
     <div>
@@ -77,22 +113,27 @@ export default App;
 - `return` - Returns JSX (HTML-like code)
 - `export default App` - Makes this component available to other files
 
-### The Entry Point (index.js)
+### The Entry Point (main.jsx)
 
 ```jsx
-// index.js
+// main.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import App from "./App.jsx";
+import "./index.css";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 ```
 
 **Explanation:**
 
 - This file tells React to put your App component into the HTML page
 - `document.getElementById('root')` finds the div with id="root" in index.html
+- `<React.StrictMode>` is a wrapper that helps catch bugs during development
 - `<App />` is how you use your component
 
 ---
