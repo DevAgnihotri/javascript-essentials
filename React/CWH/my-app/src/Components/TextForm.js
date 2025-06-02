@@ -25,14 +25,22 @@ export default function TextForm(props) {
   }
   
   return (
-    <div>
-      <h1>{props.heading}</h1>
-      <div className="mb-3">
-        <textarea id="myBox" value={text}  className="form-control" row="8" onChange={handleOnChange}></textarea>
-        <button className="btn btn-primary" onClick={handleUpClick}>Convert to Uppercase</button>
-        <button className="btn btn-primary" onClick={handleDownClick}>Convert to Lowercase</button>
-        <button className="btn btn-primary" onClick={numInc}>Clicked {count} times</button>
+      <>
+      <div className="container">
+        <h1>{props.heading}</h1>
+        <div className="mb-3">
+          <textarea id="myBox" value={text}  className="form-control" row="8" onChange={handleOnChange}></textarea>
+          <button className="btn btn-primary" onClick={handleUpClick}>Convert to Uppercase</button>
+          <button className="btn btn-success mx-1" onClick={handleDownClick}>Convert to Lowercase</button>
+          <button className="btn btn-danger" onClick={numInc}>Clicked {count} times</button>
+        </div>
       </div>
-    </div>
+      <div className="container">
+      <p>Your text has {text.length} characters and {text.split(" ").length} words</p>
+      <p>Reading time = {text.split(" ").length * 0.008} mins</p>
+      <h2>Preview</h2>
+      <p>{text}</p>
+      </div>
+    </>
   );
 }
