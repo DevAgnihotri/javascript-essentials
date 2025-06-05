@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import NewsItem from './NewsItem'
+import Spinner from './Spinner';
 
 export class News extends Component {
 
@@ -39,49 +40,54 @@ export class News extends Component {
         super();
         this.state = {
             articles: [],
-            loading: true,
+            loading: false,
             page: 1
         }
     }
 
   async componentDidMount() {
-    let url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=f9be7e046f7b47f0aa0b639157b646a0&page=1&pageSize=20"
+    let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=f9be7e046f7b47f0aa0b639157b646a0&page=1&pageSize=${this.props.pageSize}`
+    this.setState({loading: true});
     let data = await fetch(url);
     let parsedData = await data.json();
-    this.setState({articles: parsedData.articles, totalResults: parsedData.totalResults})
+    this.setState({articles: parsedData.articles,
+       totalResults: parsedData.totalResults,
+      loading: false})
   }
   
   handlePrevClick = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=f9be7e046f7b47f0aa0b639157b646a0&page=${this.state.page - 1}&pageSize=20`
+    let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=f9be7e046f7b47f0aa0b639157b646a0&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`
+    this.setState({loading: true});
     let data = await fetch(url);
     let parsedData = await data.json();
     this.setState({
       page: this.state.page - 1,
-      articles: parsedData.articles
+      articles: parsedData.articles,
+      loading: false
       })
   }
 
   handleNextClick = async () => {
 
-    if (this.state.page + 1 > Math.ceil(this.state.totalResults/20)) 
+    if (!(this.state.page + 1 > Math.ceil(this.state.totalResults/this.props.pageSize))) 
     {
-      // Do nothing - prevent navigation beyond last page
-    }
-    else {
-    let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=f9be7e046f7b47f0aa0b639157b646a0&page=${this.state.page + 1}&pageSize=20`
+    let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=f9be7e046f7b47f0aa0b639157b646a0&page=${this.state.page + 1}&pageSize=${this.props.pageSize}` 
+    this.setState({loading: true});
     let data = await fetch(url);
     let parsedData = await data.json();
     this.setState({
       page: this.state.page + 1,
-      articles: parsedData.articles
+      articles: parsedData.articles,
+      loading: false
       })
   }}
   render() {
     return (
       <div className='container my-3'>
-        <h2>Top Headlines</h2>
+        <h1  className='text-center'>Top Headlines</h1>
+       {this.state.loading && <Spinner/>}
         <div className="row">
-            {this.state.articles.map((element) => {
+            {!this.state.loading && this.state.articles.map((element) => {
                 return <div className="col-md-4" key={element.url}>
                 <NewsItem title={element.title?element.title.slice(0,25):""} description={element.description?element.description.slice(0,88):""} imageUrl={element.urlToImage?element.urlToImage:"https://plus.unsplash.com/premium_photo-1707080369554-359143c6aa0b?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bmV3cyUyMHdlYnNpdGV8ZW58MHx8MHx8fDA%3D"} newsUrl={element.url}/>
             </div>
@@ -89,7 +95,7 @@ export class News extends Component {
         </div>
         <div className="container d-flex justify-content-around">
           <button disabled={this.state.page<1} type='button' className='btn btn-dark' onClick={this.handlePrevClick}> &larr; Prev</button>
-          <button disabled={this.state.page >= Math.ceil(this.state.totalResults/20)} type='button' className='btn btn-warning' onClick={this.handleNextClick}>Next &rarr;</button>
+          <button disabled={this.state.page >= Math.ceil(this.state.totalResults/this.props.pageSize)} type='button' className='btn btn-warning' onClick={this.handleNextClick}>Next &rarr;</button>
         </div>
       </div>
     )
