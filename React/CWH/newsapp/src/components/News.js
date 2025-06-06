@@ -44,6 +44,7 @@ export class News extends Component {
     country: 'us',
     pageSize: 8,
     category: 'entertainment'
+    
   }
     static propTypes = {
       country: PropTypes.string,
@@ -104,7 +105,7 @@ export class News extends Component {
         <div className="row">
             {!this.state.loading && this.state.articles.map((element) => {
                 return <div className="col-md-4" key={element.url}>
-                <NewsItem title={element.title?element.title.slice(0,25):""} description={element.description?element.description.slice(0,88):""} imageUrl={element.urlToImage?element.urlToImage:"https://plus.unsplash.com/premium_photo-1707080369554-359143c6aa0b?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bmV3cyUyMHdlYnNpdGV8ZW58MHx8MHx8fDA%3D"} newsUrl={element.url}/>
+                <NewsItem title={element.title?element.title.slice(0,25):""} description={element.description?element.description.slice(0,88):""} time={element.publishedAt?element.publishedAt:"Not mentioned"} author={element.author?element.author:""} imageUrl={element.urlToImage?element.urlToImage:"https://plus.unsplash.com/premium_photo-1707080369554-359143c6aa0b?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bmV3cyUyMHdlYnNpdGV8ZW58MHx8MHx8fDA%3D"} newsUrl={element.url}/>
             </div>
             })}
         </div>
