@@ -1,46 +1,32 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
   Link
 }  from "react-router-dom";
 
-export class Navbar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isNavCollapsed: true
-    };
-  }
-
-  handleNavCollapse = () => {
-    this.setState({isNavCollapsed: !this.state.isNavCollapsed});
-  }
-
-  render() {
-    const { isNavCollapsed } = this.state;
+const Navbar = ()  => { 
     return (
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">NewsMonkey</Link>
-                <button 
+                <Link className="navbar-brand" to="/">NewsMonkey</Link>                <button 
                   className="navbar-toggler" 
                   type="button" 
-                  onClick={this.handleNavCollapse}
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent"
                   aria-controls="navbarSupportedContent" 
-                  aria-expanded={!isNavCollapsed} 
+                  aria-expanded="false" 
                   aria-label="Toggle navigation"
                 >
                   <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className={`collapse navbar-collapse ${!isNavCollapsed ? 'show' : ''}`} id="navbarSupportedContent">
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item"><Link className="nav-link active" aria-current="page" to="/" onClick={this.handleNavCollapse}>Home</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/" onClick={this.handleNavCollapse}>About</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/entertainment" onClick={this.handleNavCollapse}>Entertainment</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/business" onClick={this.handleNavCollapse}>Business</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/health" onClick={this.handleNavCollapse}>Health</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/science" onClick={this.handleNavCollapse}>Science</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/sports" onClick={this.handleNavCollapse}>Sports</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/technology" onClick={this.handleNavCollapse}>Technology</Link></li>      
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li className="nav-item"><Link className="nav-link active" aria-current="page" to="/">Home</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to="/">About</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to="/entertainment">Entertainment</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to="/business">Business</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to="/health">Health</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to="/science">Science</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to="/sports">Sports</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to="/technology">Technology</Link></li>      
                 </ul>
                 
                 </div>
@@ -48,6 +34,6 @@ export class Navbar extends Component {
         </nav>
     )
   }
-}
+
 
 export default Navbar
