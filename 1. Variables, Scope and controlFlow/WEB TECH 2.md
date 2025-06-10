@@ -899,4 +899,28 @@ COM lets programs on the same computer share features. DCOM lets programs on dif
 
 ---
 
-This covers the topics in simple English with examples, tables, and diagrams. If you need more details or examples, just ask!
+
+
+
+
+
+Introduction to JavaScript, Creating Variables in
+JavaScript, Creating Functions in JavaScript, UI Events, Returning Data from Functions
+
+1.  What are the objects in JavaScript?
+2.  What are the features of JavaScript? Write a program in JavaScript to display “Hello”. Also show the usage of FOR statement by taking an example.
+3.  What are objects in JavaScript? Write a Script to generate random numbers.
+4.  Is COM same as DCOM? Comment on it.
+5.  Compare CGI and JavaScript.
+6.  Explain the various Form objects used by JavaScript. Write JavaScript to demonstrate how data validation can be performed.
+7.  What is Document Object Model? How to create a text box and button in DOM.
+8.  What is the difference between JavaScript and Jscript? How will you do client-side validation using JavaScript?
+9.  Explain the scope of `let` and `var` variables in JavaScript.
+10. Differentiate between Client-Side scripting and Server-Side Scripting.
+11. Illustrate Document Object Model. How to create a text box and button in DOM.
+12. ‘JavaScript is referred to as object-based programming language’. Illustrate with an example.
+13. Construct a JavaScript program to print the reverse digits of any number.
+14. What do you mean by Switch Case? Explain the various control statements in JavaScript.
+15. Differentiate between DOM and COM.
+16. Write a code in JavaScript for creating Alert and Confirm Box.
+17. Define API and CGI.
